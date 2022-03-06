@@ -1,18 +1,16 @@
-#define maxTeacher 6
+#include "./globalconst.h"
 
-//struct Student createStudent();
 int readTeacher();
 int createTeacher();
-int readTeacher();
 int updateTeacher(int option);
 int deleteTeacher();
 
 struct Teacher{
     int Matricula;
-    char Nome[60];
-    char Sexo[2];
-	char dataNascimento[11];
-    char Cpf[15];
+    char Nome[MaxName];
+    char Sexo[MaxGen];
+	char dataNascimento[MaxBirth];
+    char Cpf[MaxCPF];
 };
 
 struct Teacher allTeachers[maxTeacher];

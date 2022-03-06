@@ -6,11 +6,12 @@
 #include "../Head/layout.h"
 
 int indexStudent = 1;
+
 int Matricula;
-char Nome[60];
-char Sexo[5];
-char dataNascimento[11];
-char Cpf[14]; 
+char Nome[MaxName];
+char Sexo[MaxGen];
+char dataNascimento[MaxBirth];
+char Cpf[MaxCPF]; 
 
 int createStudent(){
 

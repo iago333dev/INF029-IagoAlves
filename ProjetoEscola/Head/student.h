@@ -1,17 +1,16 @@
-#define maxStudent 6
-//struct Student createStudent();
+#include "./globalconst.h"
+
 int readStudents();
 int createStudent();
-int readStudents();
 int updateStudent(int option);
 int deleteStudent();
 
 struct Student{
     int Matricula;
-    char Nome[60];
-    char Sexo[2];
-	char dataNascimento[11];
-    char Cpf[15];
+    char Nome[MaxName];
+    char Sexo[MaxGen];
+	  char dataNascimento[MaxBirth];
+    char Cpf[Max];
 };
 
 struct Student allStudents[maxStudent];
