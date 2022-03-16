@@ -4,12 +4,12 @@
 
 #include "../Functions/student.c"
 #include "../Functions/teacher.c"
+#include "../Functions/subjects.c"
+
+#include "../Head/Run.h"
 
 
-int submenuStudantUpdate();
-int submenuTeacherUpdate();
-int showTeacherMenu();
-int showStudentMenu();
+
 
 int showMenu(){  
 	int init = 0;
@@ -19,6 +19,7 @@ int showMenu(){
 	   printf("******************************** \n");
 	   showStudentMenu();
 	   showTeacherMenu();
+     showSubjectsMenu();
 	   printf("******************************** \n");
 
 		scanf("%d",&resp);
@@ -57,13 +58,22 @@ int showMenu(){
 			case 8:{
 			resp = deleteTeacher();
 			break;
-			} 
+			}
+
+      case 9:{
+			resp = createSubject();
+			break;
+			}
+
+      case 10:{
+			resp = readSubjects();
+			break;
+			}
 
 			default:{
 				printf("==================== \n");
 				printf("Resposta Invalida \n");
 				printf("==================== \n");
-
 			}
 			
 			resp = 0;
@@ -126,4 +136,9 @@ int showTeacherMenu(){
 		printf("Digite 6 Listar Professor \n");
 		printf("Digite 7 Atualizar Professor \n");
 		printf("Digite 8 Deletar Professor \n");		
+}
+
+int showSubjectsMenu(){    	
+		printf("Digite 9 Inserir Matéria \n");
+		printf("Digite 10 Listar Matérias e Professores \n");	
 }

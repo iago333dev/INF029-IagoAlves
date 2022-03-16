@@ -12,4 +12,4 @@
 
 // Subject Constants
 #define MaxSubName 30
-#define MaxHalfyear 6
+#define MaxHalfyear 7

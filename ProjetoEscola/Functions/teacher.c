@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "../Head/teacher.h"
-#include "../Head/layout.h"
+
 
 int indexTeacher = 1;
 

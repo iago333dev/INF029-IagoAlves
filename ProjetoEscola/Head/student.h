@@ -10,7 +10,7 @@ struct Student{
     char Nome[MaxName];
     char Sexo[MaxGen];
 	  char dataNascimento[MaxBirth];
-    char Cpf[Max];
+    char Cpf[MaxCPF];
 };
 
 struct Student allStudents[maxStudent];

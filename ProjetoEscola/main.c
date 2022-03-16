@@ -6,7 +6,7 @@
 // Análise e Desenvolvimento de Sistemas - IFBA
 // Laboratorio de Programação
 
-#include "./Layout/Menu.c"
+#include "./Layout/Run.c"
 
 int main (void){
     showMenu();

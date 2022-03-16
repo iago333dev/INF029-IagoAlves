@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "../Head/student.h"
-#include "../Head/layout.h"
+#include "../Head/Run.h"
 
 int indexStudent = 1;
 
