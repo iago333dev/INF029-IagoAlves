@@ -9,67 +9,35 @@
 #include "../Head/Run.h"
 
 
-
-
 int showMenu(){  
 	int init = 0;
 	int resp = 0;
 
    do{
 	   printf("******************************** \n");
-	   showStudentMenu();
-	   showTeacherMenu();
-     showSubjectsMenu();
+     printf("Digite 1 Para Menu Aluno \n");
+     printf("Digite 2 Para Menu Professor \n");
+     printf("Digite 3 Para Menu Matéria \n");
 	   printf("******************************** \n");
 
 		scanf("%d",&resp);
 
 		switch (resp){
-			case 1:{
-			resp = createStudent();  
+      case 1:{
+		  resp = showStudentMenu();
 			break;
 			}
 
-			case 2:{
-			resp = readStudents(); 
-			break;
-			}   
-
-			case 3:{
-			submenuStudantUpdate(); 
-			break;
-			}
-			case 4:{
-			resp = deleteStudent();
-			break;
-			}
-			case 5:{
-			resp = createTeacher();
-			break;
-			} 
-			case 6:{
-			resp = readTeacher();
-			break;
-			} 
-			case 7:{
-			submenuTeacherUpdate(); 
-			break;
-			}        
-			case 8:{
-			resp = deleteTeacher();
+      case 2:{
+			resp = showTeacherMenu();  
 			break;
 			}
 
-      case 9:{
-			resp = createSubject();
+      case 3:{
+			resp = showSubjectsMenu();  
 			break;
 			}
-
-      case 10:{
-			resp = readSubjects();
-			break;
-			}
-
+			
 			default:{
 				printf("==================== \n");
 				printf("Resposta Invalida \n");
@@ -78,40 +46,36 @@ int showMenu(){
 			
 			resp = 0;
 			}
-   	}        
-   while(resp == 0);
+   	}while(resp == 0);
 }
 
 int submenuStudantUpdate(){
-	    int user_id,option;
+	    int option;
 
     while(option != 0){
-        printf("Digite 1 para atualizar Nome \n");
-        printf("Digite 2 para atualizar Sexo \n");
-		printf("Digite 0 para Menu \n");
+      printf("Digite 1 para atualizar Nome \n");
+      printf("Digite 2 para atualizar Sexo \n");
+		  printf("Digite 0 para Menu \n");
+      
+      scanf("%d",&option);
 
-        scanf("%d",&option);
-
-		if(option == 0)  {
-        	showMenu();
-    	}
-
+  		if(option == 0)  {
+        showMenu();
+      }
         updateStudent(option);
     }
-
 	return 0;
-
 }
 
 int submenuTeacherUpdate(){
-	    int user_id,option;
+	  int option;
 
     while(option != 0){
-        printf("Digite 1 para atualizar Nome \n");
-        printf("Digite 2 para atualizar Sexo \n");
-		printf("Digite 0 para Menu \n");
+      printf("Digite 1 para atualizar Nome \n");
+      printf("Digite 2 para atualizar Sexo \n");
+		  printf("Digite 0 para Menu \n");
 
-        scanf("%d",&option);
+      scanf("%d",&option);
 
 		if(option == 0)  {
         	showMenu();
@@ -125,20 +89,140 @@ int submenuTeacherUpdate(){
 }
 
 int showStudentMenu(){    	      
-		printf("Digite 1 Inserir Aluno \n");
-		printf("Digite 2 Listar Alunos \n");
-		printf("Digite 3 Atualizar Aluno \n");
-		printf("Digite 4 Deletar Aluno \n");		
+  int resp = 999;
+  
+  do{
+    printf("******************************** \n");
+    printf("Digite 1 Inserir Aluno \n");
+  	printf("Digite 2 Listar Alunos \n");
+  	printf("Digite 3 Atualizar Aluno \n");
+  	printf("Digite 4 Deletar Aluno \n");	    
+    printf("Digite 0 Para Voltar \n");
+    printf("******************************** \n");
+
+		scanf("%d",&resp);
+
+    switch (resp){
+      case 1:{
+      resp = createStudent();		
+			break;
+			}
+
+      case 2:{
+		  resp = readStudents();
+			break;
+			}
+
+      case 3:{
+		  submenuStudantUpdate();
+			break;
+			}
+		  case 4:{
+		  resp = deleteStudent();
+			break;
+			}
+
+      case 0:{
+		  resp = showMenu();
+			break;
+			}
+      
+			default:{
+				printf("==================== \n");
+				printf("Resposta Invalida \n");
+				printf("==================== \n");
+			}
+			
+			resp = 999;
+		}
+  }while(resp = 999);  
 }
 
-int showTeacherMenu(){    	
-		printf("Digite 5 Inserir Professor \n");
-		printf("Digite 6 Listar Professor \n");
-		printf("Digite 7 Atualizar Professor \n");
-		printf("Digite 8 Deletar Professor \n");		
+int showTeacherMenu(){  
+  int resp = 999;
+  do{
+    printf("******************************** \n");
+		printf("Digite 1 Inserir Professor \n");
+		printf("Digite 2 Listar Professor \n");
+		printf("Digite 3 Atualizar Professor \n");
+		printf("Digite 4 Deletar Professor \n");	
+    printf("Digite 0 Para Voltar \n");
+    printf("******************************** \n");
+
+		scanf("%d",&resp);
+
+    switch (resp){
+      case 1:{
+      resp = createTeacher();		
+			break;
+			}
+
+      case 2:{
+		  resp = readTeacher();
+			break;
+			}
+
+      case 3:{
+		  submenuTeacherUpdate(); 
+			break;
+			}
+		  case 4:{
+		  resp = deleteTeacher();
+			break;
+			}
+
+      case 0:{
+		  resp = showMenu();
+			break;
+			}
+      
+			default:{
+				printf("==================== \n");
+				printf("Resposta Invalida \n");
+				printf("==================== \n");
+			}
+			
+			resp = 999;
+		}
+  }while(resp = 999);  
 }
 
-int showSubjectsMenu(){    	
-		printf("Digite 9 Inserir Matéria \n");
-		printf("Digite 10 Listar Matérias e Professores \n");	
+int showSubjectsMenu(){    
+  int resp = 999;
+  do{
+    printf("******************************** \n");
+		printf("Digite 1 Inserir Matéria \n");
+		printf("Digite 2 Listar Matérias e Professores \n");	
+    printf("Digite 0 Para Voltar \n");
+    printf("******************************** \n");
+    
+		scanf("%d",&resp);
+
+    switch (resp){
+      case 1:{
+      resp = createSubject();	
+			break;
+			}
+
+      case 2:{
+		  resp = readSubjects();
+			break;
+			}
+
+
+      case 0:{
+		  resp = showMenu();
+			break;
+			}
+      
+			default:{
+				printf("==================== \n");
+				printf("Resposta Invalida \n");
+				printf("==================== \n");
+			}
+			
+			resp = 999;
+		}
+  }while(resp = 999);
 }
+
