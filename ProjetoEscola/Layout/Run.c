@@ -8,7 +8,6 @@
 
 #include "../Head/Run.h"
 
-
 int showMenu(){  
 	int init = 0;
 	int resp = 0;
@@ -192,7 +191,8 @@ int showSubjectsMenu(){
   do{
     printf("******************************** \n");
 		printf("Digite 1 Inserir Matéria \n");
-		printf("Digite 2 Listar Matérias e Professores \n");	
+		printf("Digite 2 Listar Matérias e Respectivos Professores \n");	
+    printf("Digite 3 Inserir Aluno na Disciplina \n");
     printf("Digite 0 Para Voltar \n");
     printf("******************************** \n");
     

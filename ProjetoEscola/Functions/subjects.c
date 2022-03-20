@@ -3,8 +3,8 @@
 #include <string.h>
 
 #include "../Head/subjects.h"
-
-
+#include "../Layout/Screen.c"
+      
 int indexSubjects = 1;
 
 int Codigo;
@@ -12,8 +12,25 @@ char MateriaNome[30];
 char Semestre[6];
 int MatriculaProf;
 
+int checkTeacher(int teacherId){
+  int resp = 999;
+  if(allTeachers[teacherId].Matricula > 0 && allTeachers[teacherId].Matricula < maxTeacher){
+    printf("Professor: %s Pressione 1 Para Confirmar \n",allTeachers[teacherId].Nome);
+    
+    scanf("%d",&resp);
+    if(resp == 1){
+      return 1;
+    }
+    return 0;
+  }
+  printf("Codigo do Professor Invalido \n");
+  ExitFunction();
+  return 0;
+}
+
 
 int createSubject(){
+  int checkteacher = 999;
 
     fflush(stdin);    
     
@@ -25,23 +42,28 @@ int createSubject(){
 
     printf("Digite o Semestre da Materia \n");   
     fgets(Semestre, 8, stdin);    
-    getchar();       
+    //getchar();       
     fflush(stdin); 
      
     printf("Digite o Codigo Matricula do Professor \n"); 
     scanf("%d",&MatriculaProf);
 
-     
-    allSubject[indexSubjects].Codigo = indexSubjects;
-    strcpy(allSubject[indexSubjects].MateriaNome,MateriaNome);
-    strcpy(allSubject[indexSubjects].Semestre,Semestre);
-    allSubject[indexSubjects].MatriculaProf = MatriculaProf; 
+    checkteacher = checkTeacher(MatriculaProf);
 
-    indexSubjects++;
+    if(checkteacher == 1){
+      allSubject[indexSubjects].Codigo = indexSubjects;
+      strcpy(allSubject[indexSubjects].MateriaNome,MateriaNome);
+      strcpy(allSubject[indexSubjects].Semestre,Semestre);
+      allSubject[indexSubjects].MatriculaProf = MatriculaProf; 
+      
+      indexSubjects++;      
 
-    
+      printf("Matéria Criada com Sucesso! \n");
+      ExitFunction();    
+    }    
     return 0;
 }
+
 
 int readSubjects(){
     
@@ -58,3 +80,4 @@ int readSubjects(){
    }
     showMenu();
 };
+

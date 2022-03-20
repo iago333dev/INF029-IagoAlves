@@ -4,10 +4,14 @@
 
 #include "../Head/student.h"
 #include "../Head/Run.h"
+//#include "../Layout/Screen.c"
+
+int ExitFunction();
 
 int indexStudent = 1;
 
 int Matricula;
+int response = 0;
 char Nome[MaxName];
 char Sexo[MaxGen];
 char dataNascimento[MaxBirth];
@@ -44,6 +48,10 @@ int createStudent(){
     strcpy(allStudents[indexStudent].Cpf,Cpf);   
 
     indexStudent++;
+    printf("**************************** \n");  
+    printf("Aluno Criado com Sucesso! \n");
+    printf("**************************** \n");
+    ExitFunction();   
 
     return 0;
 }
@@ -60,12 +68,10 @@ int readStudents(){
         printf("Data de Nascimento: %s",allStudents[count].dataNascimento);
         printf("CPF: %s",allStudents[count].Cpf);
         count++;
-        printf("**************************** \n");
+        printf("**************************** \n");      
    }
-
-   
-
-    showMenu();
+    ExitFunction();   
+    return 0;
 }; 
 
 int updateStudent(int option){    
@@ -88,6 +94,12 @@ int updateStudent(int option){
             getchar();     
             fgets(novo_nome, 60, stdin);           
             strcpy(allStudents[user_id].Nome,novo_nome);
+
+            printf("******************************************** \n");
+            printf("Nome Alterado com Sucesso! \n");
+            printf("******************************************** \n");
+            ExitFunction();
+            return 0;
         
             break;
         }
@@ -96,6 +108,12 @@ int updateStudent(int option){
             getchar();     
             scanf("%s",&novo_sexo);                                
             strcpy(allStudents[user_id].Sexo,novo_sexo);
+
+              printf("******************************************** \n");
+              printf("SEXO de %s Alterado com Sucesso! \n",allStudents[user_id].Nome);
+              printf("******************************************** \n");
+              ExitFunction();
+              return 0;
         
             break;
         }
@@ -154,8 +172,8 @@ int deleteStudent() {
     printf("Aluno: %s",allStudents[delete_id].Nome);
     printf("Data de Nascimento: %s",allStudents[delete_id].dataNascimento);
     printf("CPF: %s",allStudents[delete_id].Cpf);      
-    printf("**************************** \n");
-
+    printf("**************************** \n");  
+    ExitFunction(); 
     return 0;    
 
 }
