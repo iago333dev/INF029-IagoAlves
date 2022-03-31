@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "../Head/teacher.h"
+#include "../Head/Run.h"
 
 
 int indexTeacher = 1;
@@ -44,6 +45,12 @@ int createTeacher(){
     strcpy(allTeachers[indexTeacher].Cpf,Cpf);   
 
     indexTeacher++;
+    printf("**************************** \n");  
+    printf("Professor Criado com Sucesso! \n");
+    printf("**************************** \n");
+    ExitFunction();   
+
+    return 0;
 
     return 0;
 }
@@ -61,6 +68,8 @@ int readTeacher(){
         printf("CPF: %s",allTeachers[count].Cpf);
         count++;
         printf("**************************** \n");
+        ExitFunction(); 
+        return 0;    
    }
 
    
@@ -88,6 +97,12 @@ int updateTeacher(int option){
             getchar();     
             fgets(novo_nome, 60, stdin);           
             strcpy(allTeachers[user_id].Nome,novo_nome);
+
+            printf("******************************************** \n");
+            printf("Nome Alterado com Sucesso! \n");
+            printf("******************************************** \n");
+            ExitFunction();
+            return 0;
         
             break;
         }
@@ -96,6 +111,12 @@ int updateTeacher(int option){
             getchar();     
             scanf("%s",&novo_sexo);                                
             strcpy(allTeachers[user_id].Sexo,novo_sexo);
+
+            printf("******************************************** \n");
+            printf("SEXO de %s Alterado com Sucesso! \n",allTeachers[user_id].Nome);
+            printf("******************************************** \n");
+            ExitFunction();
+            return 0;
         
             break;
         }
@@ -155,7 +176,7 @@ int deleteTeacher() {
     printf("Data de Nascimento: %s",allTeachers[delete_id].dataNascimento);
     printf("CPF: %s",allTeachers[delete_id].Cpf);      
     printf("**************************** \n");
-
-    return 0;    
+    ExitFunction(); 
+    return 0;  
 
 }

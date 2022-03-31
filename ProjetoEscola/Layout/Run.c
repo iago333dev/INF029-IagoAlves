@@ -209,12 +209,17 @@ int showSubjectsMenu(){
 			break;
 			}
 
+      case 3:{
+		  resp = StudentHasSubject();
+			break;
+			}
+
 
       case 0:{
 		  resp = showMenu();
 			break;
 			}
-      
+  
 			default:{
 				printf("==================== \n");
 				printf("Resposta Invalida \n");

@@ -6,6 +6,7 @@
 #include "../Layout/Screen.c"
       
 int indexSubjects = 1;
+int indexStudentHasSubject = 1;
 
 int Codigo;
 char MateriaNome[30];
@@ -27,7 +28,6 @@ int checkTeacher(int teacherId){
   ExitFunction();
   return 0;
 }
-
 
 int createSubject(){
   int checkteacher = 999;
@@ -58,7 +58,7 @@ int createSubject(){
       
       indexSubjects++;      
 
-      printf("Matéria Criada com Sucesso! \n");
+      printf("Matéria de Codigo %d Criada com Sucesso! \n",allSubject[indexSubjects].Codigo);
       ExitFunction();    
     }    
     return 0;
@@ -81,3 +81,59 @@ int readSubjects(){
     showMenu();
 };
 
+int StudentHasSubject(){
+  int subject_code;
+  int student_code;
+  int response_a = 0;
+  int response_b = 0;
+
+  do{
+    system("clear");
+    printf("Digite o Codigo da Matéria \n");
+    scanf("%d",&subject_code);
+
+        if(!allSubject[subject_code].Codigo){
+        printf("Matéria Não encontrada \n");
+        printf("**************************** \n");
+
+        continue;
+    }
+
+    
+    printf("Nome da Materia: %s",allSubject[subject_code].MateriaNome);    
+    printf("Semestre da Materia: %s \n",allSubject[subject_code].Semestre);
+    printf("Nome Professor: %s \n",allTeachers[allSubject[subject_code].MatriculaProf].Nome);
+    printf("Digite 1 para Confirma Informações ou 0 Para Voltar \n");
+    scanf("%d",&response);
+    
+  }while(response_a = 0);
+
+  do{
+    printf("Digite a Matricula do Aluno \n");
+    scanf("%d",&student_code);
+
+    if(!allStudents[student_code].Matricula){
+      printf("Aluno Não encontrado \n");
+      printf("**************************** \n");
+      continue;
+    }
+    
+    printf("Nome: %s",allStudents[student_code].Nome);    
+    printf("Genero: %s \n",allStudents[student_code].Sexo);
+    printf("Data de Nascimento: %s",allStudents[student_code].dataNascimento);
+    printf("CPF: %s",allStudents[student_code].Cpf);
+    printf("Digite 1 para Confirmar Informações ou 0 Para Voltar \n");
+    scanf("%d",&response_b);
+    
+  }while(response_b = 0);
+
+  if(response_a == 1 && response_b == 1){
+    allSubjectStudent[indexStudentHasSubject].CodigoSubject = subject_code;
+    allSubjectStudent[indexStudentHasSubject].CodigoStudent = student_code;
+
+    indexStudentHasSubject++;
+  }
+
+  
+   
+}
