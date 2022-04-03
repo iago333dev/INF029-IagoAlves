@@ -193,6 +193,7 @@ int showSubjectsMenu(){
 		printf("Digite 1 Inserir Matéria \n");
 		printf("Digite 2 Listar Matérias e Respectivos Professores \n");	
     printf("Digite 3 Inserir Aluno na Disciplina \n");
+    printf("Digite 4 Apresentar Alunos em Determinada Disciplina \n");
     printf("Digite 0 Para Voltar \n");
     printf("******************************** \n");
     
@@ -214,6 +215,10 @@ int showSubjectsMenu(){
 			break;
 			}
 
+      case 4:{
+		  resp = readStudentOnSubject();
+			break;
+			}
 
       case 0:{
 		  resp = showMenu();

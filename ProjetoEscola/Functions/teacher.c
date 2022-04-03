@@ -51,8 +51,6 @@ int createTeacher(){
     ExitFunction();   
 
     return 0;
-
-    return 0;
 }
 
 int readTeacher(){
@@ -68,9 +66,9 @@ int readTeacher(){
         printf("CPF: %s",allTeachers[count].Cpf);
         count++;
         printf("**************************** \n");
-        ExitFunction(); 
-        return 0;    
    }
+    ExitFunction(); 
+    return 0;    
 
    
 

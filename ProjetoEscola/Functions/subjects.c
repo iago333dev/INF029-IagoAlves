@@ -58,12 +58,11 @@ int createSubject(){
       
       indexSubjects++;      
 
-      printf("Matéria de Codigo %d Criada com Sucesso! \n",allSubject[indexSubjects].Codigo);
+      printf("Matéria de Codigo %d Criada com Sucesso! \n",indexSubjects);
       ExitFunction();    
     }    
     return 0;
 }
-
 
 int readSubjects(){
     
@@ -104,9 +103,9 @@ int StudentHasSubject(){
     printf("Semestre da Materia: %s \n",allSubject[subject_code].Semestre);
     printf("Nome Professor: %s \n",allTeachers[allSubject[subject_code].MatriculaProf].Nome);
     printf("Digite 1 para Confirma Informações ou 0 Para Voltar \n");
-    scanf("%d",&response);
+    scanf("%d",&response_a);
     
-  }while(response_a = 0);
+  }while(response_a != 1);
 
   do{
     printf("Digite a Matricula do Aluno \n");
@@ -125,7 +124,7 @@ int StudentHasSubject(){
     printf("Digite 1 para Confirmar Informações ou 0 Para Voltar \n");
     scanf("%d",&response_b);
     
-  }while(response_b = 0);
+  }while(response_b != 1);
 
   if(response_a == 1 && response_b == 1){
     allSubjectStudent[indexStudentHasSubject].CodigoSubject = subject_code;
@@ -136,4 +135,21 @@ int StudentHasSubject(){
 
   
    
+}
+
+int readStudentOnSubject(){
+  int subject_code;
+  int i = 0;
+  printf("Digite o Codigo da Matéria \n");
+  scanf("%d",&subject_code);
+
+  printf("Apresentando Alunos da Matéria: %s \n",allSubject[subject_code].MateriaNome);
+  while(i!=maxStudent){
+    if(allSubjectStudent[i].CodigoSubject == subject_code){
+      printf("%s \n",allStudents[allSubjectStudent[i].CodigoStudent].Nome);
+    }
+    i++;
+  }
+  ExitFunction();
+  return 0;  
 }
